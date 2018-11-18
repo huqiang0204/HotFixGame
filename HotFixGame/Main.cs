@@ -9,7 +9,7 @@ namespace HotFixGame
         public static void Start(AssetBundle asset, RectTransform uiRoot)
         {
             HotPage.Root = uiRoot;
-            HotPage.LoadPage<LoginPage>();
+            HotPage.LoadPage<LobbyPage>();
         }
         public static void Cmd(DataBuffer buffer)
         {
