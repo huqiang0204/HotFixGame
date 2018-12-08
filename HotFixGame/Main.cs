@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Main
 {
-    public static void Start(AssetBundle asset, RectTransform uiRoot)
+    public static void Start(RectTransform uiRoot)
     {
         HotPage.Root = uiRoot;
         HotPage.LoadPage<LobbyPage>();
