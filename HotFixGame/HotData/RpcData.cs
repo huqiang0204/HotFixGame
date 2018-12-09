@@ -1,4 +1,5 @@
-﻿using huqiang.Data;
+﻿using HotFixGame.HotControll;
+using huqiang.Data;
 using System;
 
 namespace HotFixGame.HotData
@@ -27,6 +28,15 @@ namespace HotFixGame.HotData
                 case RpcCmd.CreateRoom:
                     CreateRoom(data);
                     break;
+                case RpcCmd.JoinRoom:
+                    JoinRoom(data);
+                    break;
+                case RpcCmd.RoomDetail:
+                    RoomDetail(data);
+                    break;
+                case RpcCmd.ExitRoom:
+                    ExitRoom();
+                    break;
             }
         }
         static void Login(DataBuffer data)
@@ -36,6 +46,18 @@ namespace HotFixGame.HotData
         static void CreateRoom(DataBuffer data)
         {
 
+        }
+        static void JoinRoom(DataBuffer data)
+        {
+            HotPage.LoadPage<GamePage>();
+        }
+        static void RoomDetail(DataBuffer data)
+        {
+
+        }
+        static void ExitRoom()
+        {
+            HotPage.LoadPage<LobbyPage>();
         }
     }
 }

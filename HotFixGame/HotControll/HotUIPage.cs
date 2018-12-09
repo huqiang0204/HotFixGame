@@ -218,8 +218,9 @@ public class HotPage:HotUIBase
     public virtual void Initial(Transform parent, object dat = null) {
         Parent = parent;
         DataContext = dat;
-        if(main!=null)
+        if(model!=null)
         {
+            main = model.Main;
             var t = main.transform;
             t.SetParent(parent);
             t.localPosition = Vector3.zero;
