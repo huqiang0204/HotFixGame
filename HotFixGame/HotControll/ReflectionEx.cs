@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace Assets.Controller
+namespace HotFixGame
 {
     public class ReflectionEx
     {

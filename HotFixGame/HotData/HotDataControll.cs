@@ -10,7 +10,16 @@ namespace HotFixGame.HotData
     {
         public static void Dispatch(DataBuffer buffer)
         {
-
+            var type = buffer.fakeStruct[Req.Type];
+            switch(type)
+            {
+                case MessageType.Rpc:
+                    RpcData.Dispatch(buffer);
+                    break;
+            }
+            var page = HotPage.CurrentPage;
+            if(page!=null)
+            page.Cmd(buffer);
         }
     }
 }

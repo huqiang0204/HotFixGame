@@ -1,4 +1,5 @@
 ﻿using HotFixGame.HotControll;
+using HotFixGame.HotData;
 using huqiang.Data;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class Main
     }
     public static void Cmd(DataBuffer buffer)
     {
-        HotFixGame.HotData.HotDataControll.Dispatch(buffer);
+        HotDataControll.Dispatch(buffer);
     }
     public static void Resize()
     {
