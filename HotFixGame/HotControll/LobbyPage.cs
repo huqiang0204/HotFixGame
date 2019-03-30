@@ -50,7 +50,7 @@ namespace HotFixGame.HotControll
                     fake[Req.Type] = MessageType.Rpc;
                     fake.SetData(Req.Args,name);
                     db.fakeStruct = fake;
-                    TcpDataControll.Instance.SendAesStream(db);
+                    KcpDataControll.Instance.SendAesStream(db);
                 }
             };
         }

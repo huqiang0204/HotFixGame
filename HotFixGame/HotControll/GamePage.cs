@@ -36,7 +36,7 @@ namespace HotFixGame.HotControll
                 fake[Req.Cmd] = RpcCmd.ExitRoom;
                 fake[Req.Type] = MessageType.Rpc;
                 db.fakeStruct = fake;
-                TcpDataControll.Instance.SendAesStream(db);
+                KcpDataControll.Instance.SendAesStream(db);
             };
         }
     }
