@@ -1,38 +1,36 @@
 ﻿using System;
 using UnityEngine;
-using huqiang.UIModel;
 using huqiang.Data;
 using huqiang;
 using UnityEngine.UI;
 using HotFixGame.HotData;
+using huqiang.UIComposite;
+using huqiang.UIEvent;
 
 namespace HotFixGame.HotControll
 {
-    class LobbyView
+    public class LobbyPage : HotUIPage
     {
-        public ScrollY roomlist;
-        public EventCallBack creatroom;
-        public GameObject pop;
-        public TextInputEvent input;
-        public EventCallBack ok;
-        public EventCallBack cancel;
-    }
-    class RoomItem
-    {
-        public Text name;
-        public Text Num;
-        public EventCallBack joinroom;
-    }
-    public class LobbyPage : HotPage
-    {
-        LobbyView view;
+        class View
+        {
+            public ScrollY roomlist;
+            public UserEvent creatroom;
+            public GameObject pop;
+            public TextInput input;
+            public UserEvent ok;
+            public UserEvent cancel;
+        }
+        class RoomItem
+        {
+            public Text name;
+            public Text Num;
+            public UserEvent joinroom;
+        }
+        View view;
         public override void Initial(Transform parent, object dat = null)
         {
-            view = new LobbyView();
-            var list = ReflectionEx.ClassToList(view);
-            model = ModelManager.LoadToGameR("GameLobby",list, parent);
-            ReflectionEx.ListToClass(list,view);
             base.Initial(parent, dat);
+            view = LoadUI<View>("baseUI", "GameLobby");
             InitialEvent();
         }
         void InitialEvent()
@@ -50,7 +48,7 @@ namespace HotFixGame.HotControll
                     fake[Req.Type] = MessageType.Rpc;
                     fake.SetData(Req.Args,name);
                     db.fakeStruct = fake;
-                    KcpDataControll.Instance.SendAesStream(db);
+                    //KcpDataControll.Instance.SendAesStream(db);
                 }
             };
         }

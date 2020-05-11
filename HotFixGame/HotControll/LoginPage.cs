@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace HotFixGame.HotControll
 {
-    public class LoginPage : HotPage
+    public class LoginPage : HotUIPage
     {
         public override void Initial(Transform parent, object dat = null)
         {

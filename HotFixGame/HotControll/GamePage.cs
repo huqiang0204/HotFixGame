@@ -1,7 +1,7 @@
 ﻿using HotFixGame.HotData;
 using huqiang;
 using huqiang.Data;
-using huqiang.UIModel;
+using huqiang.UIEvent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,21 +11,18 @@ using UnityEngine.UI;
 
 namespace HotFixGame.HotControll
 {
-    class GameView
+    public class GamePage:HotUIPage
     {
-        public EventCallBack back;
-        public Image img;
-    }
-    public class GamePage:HotPage
-    {
-        GameView view;
+        class View
+        {
+            public UserEvent back;
+            public Image img;
+        }
+        View view;
         public override void Initial(Transform parent, object dat = null)
         {
-            view = new GameView();
-            var list = ReflectionEx.ClassToList(view);
-            model = ModelManager.LoadToGameR("GameRoom", list, parent);
-            ReflectionEx.ListToClass(list, view);
             base.Initial(parent, dat);
+            view = LoadUI<View>("baseUI", "GameRoom");
             InitialEvent();
         }
         void InitialEvent()
@@ -36,7 +33,7 @@ namespace HotFixGame.HotControll
                 fake[Req.Cmd] = RpcCmd.ExitRoom;
                 fake[Req.Type] = MessageType.Rpc;
                 db.fakeStruct = fake;
-                KcpDataControll.Instance.SendAesStream(db);
+                //KcpDataControll.Instance.SendAesStream(db);
             };
         }
     }

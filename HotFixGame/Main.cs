@@ -5,22 +5,26 @@ using UnityEngine;
 
 public class Main
 {
-    public static void Start(RectTransform uiRoot)
+    public static void Start(RectTransform uiRoot, string Cmd, object dat)
     {
-        HotPage.Root = uiRoot;
-        HotPage.LoadPage<LobbyPage>();
+        HotUIPage.Root = uiRoot;
+        HotUIPage.LoadPage<LobbyPage>();
     }
-    public static void Cmd(DataBuffer buffer)
+    public static void Cmd(string cmd, object obj)
     {
-        HotDataControll.Dispatch(buffer);
+
+    }
+    public static void FullCmd(DataBuffer req)
+    {
+        HotDataControll.Dispatch(req);
     }
     public static void Resize()
     {
-        if (HotPage.CurrentPage != null)
-            HotPage.CurrentPage.ReSize();
+        if (HotUIPage.CurrentPage != null)
+            HotUIPage.CurrentPage.ReSize();
     }
     public static void Update(float time)
     {
-        HotPage.Refresh(time);
+        HotUIPage.Refresh(time);
     }
 }

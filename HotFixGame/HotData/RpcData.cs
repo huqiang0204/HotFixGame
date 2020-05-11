@@ -49,7 +49,7 @@ namespace HotFixGame.HotData
         }
         static void JoinRoom(DataBuffer data)
         {
-            HotPage.LoadPage<GamePage>();
+            HotUIPage.LoadPage<GamePage>();
         }
         static void RoomDetail(DataBuffer data)
         {
@@ -57,7 +57,7 @@ namespace HotFixGame.HotData
         }
         static void ExitRoom()
         {
-            HotPage.LoadPage<LobbyPage>();
+            HotUIPage.LoadPage<LobbyPage>();
         }
     }
 }

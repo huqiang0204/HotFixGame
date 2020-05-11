@@ -17,9 +17,9 @@ namespace HotFixGame.HotData
                     RpcData.Dispatch(buffer);
                     break;
             }
-            var page = HotPage.CurrentPage;
-            if(page!=null)
-            page.Cmd(buffer);
+            var page = HotUIPage.CurrentPage;
+            if (page != null)
+                page.Cmd(buffer);
         }
     }
 }
