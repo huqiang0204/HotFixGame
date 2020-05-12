@@ -31,7 +31,7 @@ namespace HotFixGame.HotControll
         {
             base.Initial(parent, dat);
             view = LoadUI<View>("baseUI", "GameLobby");
-            InitialEvent();
+            //InitialEvent();
         }
         void InitialEvent()
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Main
 {
-    public static void Start(RectTransform uiRoot, string Cmd, object dat)
+    public static void Start(Transform uiRoot, string Cmd, object dat)
     {
         HotUIPage.Root = uiRoot;
         HotUIPage.LoadPage<LobbyPage>();
