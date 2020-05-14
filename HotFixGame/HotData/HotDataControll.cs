@@ -13,6 +13,9 @@ namespace HotFixGame.HotData
             var type = buffer.fakeStruct[Req.Type];
             switch(type)
             {
+                case MessageType.Def:
+                    DefData.di
+                    break;
                 case MessageType.Rpc:
                     RpcData.Dispatch(buffer);
                     break;

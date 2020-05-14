@@ -6,7 +6,6 @@ namespace HotFixGame.HotData
 {
     public class RpcCmd
     {
-        public const Int32 Login = 0;
         public const Int32 CreateRoom = 1;
         public const Int32 JoinRoom = 2;
         public const Int32 ExitRoom = 3;
@@ -22,9 +21,6 @@ namespace HotFixGame.HotData
             int cmd = data.fakeStruct[Req.Cmd];
             switch (cmd)
             {
-                case RpcCmd.Login:
-                    Login(data);
-                    break;
                 case RpcCmd.CreateRoom:
                     CreateRoom(data);
                     break;
@@ -38,10 +34,6 @@ namespace HotFixGame.HotData
                     ExitRoom();
                     break;
             }
-        }
-        static void Login(DataBuffer data)
-        {
-
         }
         static void CreateRoom(DataBuffer data)
         {
