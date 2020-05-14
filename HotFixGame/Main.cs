@@ -8,7 +8,7 @@ public class Main
     public static void Start(Transform uiRoot, string Cmd, object dat)
     {
         HotUIPage.Root = uiRoot;
-        HotUIPage.LoadPage<LobbyPage>();
+        HotUIPage.LoadPage<LoginPage>();
     }
     public static void Cmd(string cmd, object obj)
     {

@@ -14,7 +14,7 @@ namespace HotFixGame.HotData
             switch(type)
             {
                 case MessageType.Def:
-                    DefData.di
+                    DefData.Dispatch(buffer);
                     break;
                 case MessageType.Rpc:
                     RpcData.Dispatch(buffer);

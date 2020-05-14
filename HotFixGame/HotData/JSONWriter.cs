@@ -55,6 +55,10 @@ namespace TinyJson
             {
                 stringBuilder.Append(((float)item).ToString(System.Globalization.CultureInfo.InvariantCulture));
             }
+            else if (type == typeof(long))
+            {
+                stringBuilder.Append(((long)item).ToString(System.Globalization.CultureInfo.InvariantCulture));
+            }
             else if (type == typeof(double))
             {
                 stringBuilder.Append(((double)item).ToString(System.Globalization.CultureInfo.InvariantCulture));
