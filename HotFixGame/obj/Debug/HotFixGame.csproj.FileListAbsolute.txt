@@ -46,4 +46,3 @@ F:\SelfWork\HotFixGame\HotFixGame\bin\Debug\HotFix.dll
 F:\SelfWork\HotFixGame\HotFixGame\bin\Debug\HotFix.pdb
 F:\SelfWork\HotFixGame\HotFixGame\obj\Debug\HotFix.dll
 F:\SelfWork\HotFixGame\HotFixGame\obj\Debug\HotFix.pdb
-F:\SelfWork\HotFixGame\HotFixGame\obj\Debug\HotFixGame.csprojAssemblyReference.cache

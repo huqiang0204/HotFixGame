@@ -20,5 +20,6 @@ namespace HotFixGame.HotData
         public long LastExit;//最后退出时间
         public long coins;
         public long diamond;
+        public int level;
     }
 }

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 using HotFixGame.HotData;
 using huqiang.UIComposite;
 using huqiang.UIEvent;
+using huqiang.Core.HGUI;
+using System.Collections.Generic;
+using HotFixGame.GameData;
 
 namespace HotFixGame.HotControll
 {
@@ -13,12 +16,20 @@ namespace HotFixGame.HotControll
     {
         class View
         {
-            public ScrollY roomlist;
-            public UserEvent creatroom;
-            public GameObject pop;
-            public TextInput input;
-            public UserEvent ok;
-            public UserEvent cancel;
+            public HImage Head;
+            public HText Level;
+            public HText CNum;
+            public UserEvent Diamond;
+            public HText DNum;
+            public UserEvent Mail;
+            public UserEvent Bag;
+            public UserEvent Setting;
+        }
+        class GameItem
+        {
+            public UserEvent Item;
+            public HImage Image;
+            public HText Text;
         }
         class RoomItem
         {
@@ -31,26 +42,39 @@ namespace HotFixGame.HotControll
         {
             base.Initial(parent, dat);
             view = LoadUI<View>("baseUI", "GameLobby");
-            //InitialEvent();
+            InitialEvent();
+            LoadData();
+            PopUpWindow<GameTypeWindow>();
         }
         void InitialEvent()
+        { 
+        }
+        void LoadData()
         {
-            view.pop.SetActive(false);
-            view.creatroom.Click = (o, e) => { view.pop.SetActive(true); };
-            view.cancel.Click = (o, e) => { view.pop.SetActive(false); };
-            view.ok.Click = (o, e) => {
-                string name =view.input.InputString;
-                if(name!=null& name!="")
-                {
-                    DataBuffer db = new DataBuffer();
-                    var fake = new FakeStruct(db,Req.Length);
-                    fake[Req.Cmd] = RpcCmd.CreateRoom;
-                    fake[Req.Type] = MessageType.Rpc;
-                    fake.SetData(Req.Args,name);
-                    db.fakeStruct = fake;
-                    //KcpDataControll.Instance.SendAesStream(db);
-                }
-            };
+            var info = UserData.userInfo;
+            view.Level.Text = "lv:" + info.level;
+            view.CNum.Text = GetCount(info.coins);
+            view.DNum.Text = info.diamond.ToString();
+        }
+        string GetCount(long num)
+        {
+            if (num >= 10000000000000)
+            {
+                return (num / 1000000000000).ToString() + "T";
+            }
+            else if (num >= 10000000000)
+            {
+                return (num / 1000000000).ToString() + "B";
+            }
+            else if (num >= 10000000)
+            {
+                return (num / 1000000).ToString() + "M";
+            }
+            else if (num >= 10000)
+            {
+                return (num / 1000).ToString() + "K";
+            }
+            return num.ToString();
         }
         public override void Cmd(DataBuffer dat)
         {
