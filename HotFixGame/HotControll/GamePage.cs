@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace HotFixGame.HotControll
 {
@@ -16,7 +15,6 @@ namespace HotFixGame.HotControll
         class View
         {
             public UserEvent back;
-            public Image img;
         }
         View view;
         public override void Initial(Transform parent, object dat = null)
